@@ -3,3 +3,4 @@ solution_secret.php
 vendor
 composer.lock
 .vagrant
+challenge.sqlite

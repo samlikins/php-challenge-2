@@ -11,6 +11,8 @@ function parse_request($request, $secret)
 
     // return strtr($request, '+/', '-_');
 
+    if(strpos($request, '.') != 88) return false;
+
     $request = strtr($request, '-_', '+/');
     echo 'Request: '.$request.PHP_EOL;
 
