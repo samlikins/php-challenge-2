@@ -1,5 +1,7 @@
 <?php
-// YOUR NAME AND EMAIL GO HERE
+/* PHP Challenge 2
+ * Sam Likins <sam.likins@wsi-services.com>
+ */
 
 function parse_request($request, $secret)
 {
