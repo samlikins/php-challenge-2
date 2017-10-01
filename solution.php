@@ -28,7 +28,12 @@ function parse_request($request, $secret)
     );
 }
 
-// $statement = $pdo->prepare('SELECT `id`, `user_id`, `score`, `date` FROM `scores`;');
+/**
+ * Return array of dates containing a specified number of scores or more
+ * @param  PDO   $pdo Database handle
+ * @param  int   $n   Number of scores to check for
+ * @return array      Array of dates containing specified number of scores
+ */
 function dates_with_at_least_n_scores($pdo, $n)
 {
     $statement = $pdo->prepare(
@@ -45,6 +50,7 @@ function dates_with_at_least_n_scores($pdo, $n)
     return $statement->fetchAll(PDO::FETCH_COLUMN, 0);
 }
 
+// $statement = $pdo->prepare('SELECT `id`, `user_id`, `score`, `date` FROM `scores`;');
 function users_with_top_score_on_date($pdo, $date)
 {
     // YOUR CODE GOES HERE
