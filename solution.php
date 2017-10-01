@@ -5,27 +5,21 @@
 
 function parse_request($request, $secret)
 {
-    // $payload   = json_encode($payload);
-    // $signature = hash_hmac('sha256', $payload, $secret);
-    // $request   = base64_encode($signature).'.'.base64_encode($payload);
-
-    // return strtr($request, '+/', '-_');
-
     if(strpos($request, '.') != 88) return false;
 
-    $request = strtr($request, '-_', '+/');
-    echo 'Request: '.$request.PHP_EOL;
-
-    $payload = substr($request, 89);
-    echo 'Payload: '.$payload.PHP_EOL;
-
-    $payload = base64_decode($payload);
-    echo 'Payload: '.$payload.PHP_EOL;
-
-    $payload = json_decode($payload, true);
-    echo 'Payload: '.var_export($payload, true).PHP_EOL;
-
-    return $payload;
+    return json_decode(
+        base64_decode(
+            substr(
+                strtr(
+                    $request,
+                    '-_',
+                    '+/'
+                ),
+                89
+            )
+        ),
+        true
+    );
 }
 
 function dates_with_at_least_n_scores($pdo, $n)
