@@ -3,6 +3,12 @@
  * Sam Likins <sam.likins@wsi-services.com>
  */
 
+/**
+ * Extract payload from request
+ * @param  string $request Encoded request
+ * @param  string $secret  Secret for decoding
+ * @return array           Decoded payload from request
+ */
 function parse_request($request, $secret)
 {
     if(strpos($request, '.') != 88) return false;
