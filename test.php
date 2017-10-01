@@ -62,29 +62,29 @@ assert($correct == $actual);
 
 populate_db_from_csv($pdo, "./data/data-3.csv");
 
-// $correct = ["2017-09-02", "2017-08-31"];
-// $actual  = dates_when_user_was_in_top_n($pdo, 1, 1);
-// assert($correct == $actual);
+$correct = ["2017-09-02", "2017-08-31"];
+$actual  = dates_when_user_was_in_top_n($pdo, 1, 1);
+assert($correct == $actual);
 
-// $correct = ["2017-09-02", "2017-09-01"];
-// $actual  = dates_when_user_was_in_top_n($pdo, 2, 1);
-// assert($correct == $actual);
+$correct = ["2017-09-02", "2017-09-01"];
+$actual  = dates_when_user_was_in_top_n($pdo, 2, 1);
+assert($correct == $actual);
 
 // $correct = ["2017-09-02", "2017-09-01", "2017-08-31"];
 // $actual  = dates_when_user_was_in_top_n($pdo, 1, 2);
 // assert($correct == $actual);
 
-// $correct = ["2017-09-02", "2017-09-01"];
-// $actual  = dates_when_user_was_in_top_n($pdo, 2, 2);
-// assert($correct == $actual);
-
-// $correct = [];
-// $actual  = dates_when_user_was_in_top_n($pdo, 3, 2);
-// assert($correct == $actual);
-
-$correct = ["2017-09-02"];
-$actual  = dates_when_user_was_in_top_n($pdo, 3, 3);
+$correct = ["2017-09-02", "2017-09-01"];
+$actual  = dates_when_user_was_in_top_n($pdo, 2, 2);
 assert($correct == $actual);
+
+$correct = [];
+$actual  = dates_when_user_was_in_top_n($pdo, 3, 2);
+assert($correct == $actual);
+
+// $correct = ["2017-09-02"];
+// $actual  = dates_when_user_was_in_top_n($pdo, 3, 3);
+// assert($correct == $actual);
 
 
 
