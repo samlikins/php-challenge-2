@@ -78,5 +78,22 @@ function users_with_top_score_on_date($pdo, $date)
 // $statement = $pdo->prepare('SELECT `id`, `user_id`, `score`, `date` FROM `scores`;');
 function dates_when_user_was_in_top_n($pdo, $user_id, $n)
 {
-    // YOUR CODE GOES HERE
+    $statement = $pdo->prepare(
+        'SELECT `scores`.`date`
+        FROM `scores`
+        WHERE `scores`.`user_id` = :userId
+            AND (
+                SELECT COUNT(*)
+                FROM `scores` AS `s`
+                WHERE `s`.`date` = `scores`.`date`
+                    AND `s`.`score` <= `scores`.`score`
+            ) <= :topCount
+        ORDER BY `scores`.`date` DESC;'
+    );
+
+    $statement->bindParam(':userId', $user_id, PDO::PARAM_INT);
+    $statement->bindParam(':topCount', $n, PDO::PARAM_INT);
+    $statement->execute();
+
+    return $statement->fetchAll(PDO::FETCH_COLUMN, 0);
 }
