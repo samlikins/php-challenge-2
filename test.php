@@ -70,9 +70,9 @@ $correct = ["2017-09-02", "2017-09-01"];
 $actual  = dates_when_user_was_in_top_n($pdo, 2, 1);
 assert($correct == $actual);
 
-// $correct = ["2017-09-02", "2017-09-01", "2017-08-31"];
-// $actual  = dates_when_user_was_in_top_n($pdo, 1, 2);
-// assert($correct == $actual);
+$correct = ["2017-09-02", "2017-09-01", "2017-08-31"];
+$actual  = dates_when_user_was_in_top_n($pdo, 1, 2);
+assert($correct == $actual);
 
 $correct = ["2017-09-02", "2017-09-01"];
 $actual  = dates_when_user_was_in_top_n($pdo, 2, 2);
@@ -82,9 +82,9 @@ $correct = [];
 $actual  = dates_when_user_was_in_top_n($pdo, 3, 2);
 assert($correct == $actual);
 
-// $correct = ["2017-09-02"];
-// $actual  = dates_when_user_was_in_top_n($pdo, 3, 3);
-// assert($correct == $actual);
+$correct = ["2017-09-02"];
+$actual  = dates_when_user_was_in_top_n($pdo, 3, 3);
+assert($correct == $actual);
 
 
 

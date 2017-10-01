@@ -82,13 +82,13 @@ function dates_when_user_was_in_top_n($pdo, $user_id, $n)
         'SELECT `scores`.`date`
         FROM `scores`
         WHERE `scores`.`user_id` = :userId
-            AND (
+            AND `scores`.`score` IN (
                 SELECT `s`.`score`
                     FROM `scores` AS `s`
                     WHERE `s`.`date` = `scores`.`date`
                     ORDER BY `s`.`score` DESC
                     LIMIT :topCount
-            ) <= `scores`.`score`
+            )
         ORDER BY `scores`.`date` DESC;'
     );
 
