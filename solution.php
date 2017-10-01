@@ -28,6 +28,7 @@ function parse_request($request, $secret)
     );
 }
 
+// $statement = $pdo->prepare('SELECT `id`, `user_id`, `score`, `date` FROM `scores`;');
 function dates_with_at_least_n_scores($pdo, $n)
 {
     // YOUR CODE GOES HERE
