@@ -50,6 +50,12 @@ function dates_with_at_least_n_scores($pdo, $n)
     return $statement->fetchAll(PDO::FETCH_COLUMN, 0);
 }
 
+/**
+ * Return user id with top score for specified date
+ * @param  PDO    $pdo  Database handle
+ * @param  string $date Date to return user of top score
+ * @return int          Id of user with top score of specified date
+ */
 function users_with_top_score_on_date($pdo, $date)
 {
     $statement = $pdo->prepare(
