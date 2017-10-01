@@ -1,2 +1,5 @@
 solution_secret.php
 .DS_Store
+vendor
+composer.lock
+.vagrant

@@ -1,0 +1,14 @@
+{
+    "name": "samlikins/php-challenge-2",
+    "description": "Solution to Wag! code challenge 2.",
+    "authors": [
+        {
+            "name": "Sam Likins",
+            "email": "sam.likins@wsi-services.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "laravel/homestead": "^4"
+    }
+}
