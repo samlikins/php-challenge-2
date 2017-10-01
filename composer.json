@@ -10,5 +10,8 @@
     "require": {},
     "require-dev": {
         "laravel/homestead": "^4"
+    },
+    "scripts": {
+        "test": "php5.6 test.php"
     }
 }
