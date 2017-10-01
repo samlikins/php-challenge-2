@@ -31,7 +31,18 @@ function parse_request($request, $secret)
 // $statement = $pdo->prepare('SELECT `id`, `user_id`, `score`, `date` FROM `scores`;');
 function dates_with_at_least_n_scores($pdo, $n)
 {
-    // YOUR CODE GOES HERE
+    $statement = $pdo->prepare(
+        'SELECT `date`
+        FROM `scores`
+        GROUP BY `date`
+        HAVING COUNT (`date`) >= :count
+        ORDER BY `date` DESC;'
+    );
+
+    $statement->bindParam(':count', $n, PDO::PARAM_INT);
+    $statement->execute();
+
+    return $statement->fetchAll(PDO::FETCH_COLUMN, 0);
 }
 
 function users_with_top_score_on_date($pdo, $date)
