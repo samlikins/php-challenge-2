@@ -75,7 +75,13 @@ function users_with_top_score_on_date($pdo, $date)
     return $statement->fetchAll(PDO::FETCH_COLUMN, 0);
 }
 
-// $statement = $pdo->prepare('SELECT `id`, `user_id`, `score`, `date` FROM `scores`;');
+/**
+ * Return array of dates specified user was within specified ranking
+ * @param  PDO   $pdo     Database handle
+ * @param  int   $user_id User Id to check if in ranking
+ * @param  int   $n       Minimum ranking
+ * @return array          Array of dates user was in specified ranking
+ */
 function dates_when_user_was_in_top_n($pdo, $user_id, $n)
 {
     $statement = $pdo->prepare(
